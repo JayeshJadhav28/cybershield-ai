@@ -19,13 +19,29 @@ make dev
 
 
 
+
 ```
 cybershield-ai
 ├─ apps
 │  ├─ api-gateway
 │  │  ├─ alembic.ini
 │  │  ├─ config.py
-│  │  ├─ crash.log
+│  │  ├─ data
+│  │  │  ├─ demo_samples
+│  │  │  │  ├─ deepfake_audio.wav
+│  │  │  │  ├─ deepfake_video.mp4
+│  │  │  │  ├─ genuine_audio.wav
+│  │  │  │  ├─ malicious_qr.png
+│  │  │  │  ├─ phishing_email_dangerous.json
+│  │  │  │  ├─ safe_email.json
+│  │  │  │  ├─ safe_qr.png
+│  │  │  │  └─ suspicious_url.json
+│  │  │  ├─ phishing_keywords.json
+│  │  │  ├─ seed_db.py
+│  │  │  ├─ seed_quizzes.json
+│  │  │  ├─ seed_scenarios.json
+│  │  │  ├─ upi_scam_patterns.json
+│  │  │  └─ url_blocklist.txt
 │  │  ├─ database.py
 │  │  ├─ dependencies.py
 │  │  ├─ Dockerfile
@@ -44,6 +60,27 @@ cybershield-ai
 │  │  │  ├─ url_heuristics.py
 │  │  │  ├─ video_model.py
 │  │  │  └─ __init__.py
+│  │  ├─ models
+│  │  │  ├─ analysis.py
+│  │  │  ├─ audio_deepfake_cnn.h5
+│  │  │  ├─ audio_deepfake_cnn.pt
+│  │  │  ├─ audit.py
+│  │  │  ├─ auth.py
+│  │  │  ├─ config.py
+│  │  │  ├─ db_types.py
+│  │  │  ├─ email_model.pkl
+│  │  │  ├─ email_vectorizer.pkl
+│  │  │  ├─ organization.py
+│  │  │  ├─ phishing_classifier.pkl
+│  │  │  ├─ phishing_model.pkl
+│  │  │  ├─ phishing_tfidf_vectorizer.pkl
+│  │  │  ├─ quiz.py
+│  │  │  ├─ README.md
+│  │  │  ├─ user.py
+│  │  │  ├─ video_deepfake_detector.h5
+│  │  │  ├─ video_deepfake_detector.pt
+│  │  │  └─ __init__.py
+│  │  ├─ render_start.sh
 │  │  ├─ requirements.txt
 │  │  ├─ routes
 │  │  │  ├─ admin.py
@@ -54,6 +91,7 @@ cybershield-ai
 │  │  │  ├─ demo.py
 │  │  │  ├─ reports.py
 │  │  │  └─ __init__.py
+│  │  ├─ runtime.txt
 │  │  ├─ schemas
 │  │  │  ├─ admin.py
 │  │  │  ├─ analysis.py
@@ -92,6 +130,7 @@ cybershield-ai
 │  │  │  ├─ test_file_validation.py
 │  │  │  ├─ test_hashing.py
 │  │  │  ├─ test_main.py
+│  │  │  ├─ test_model.py
 │  │  │  ├─ test_phishing.py
 │  │  │  ├─ test_quiz_service.py
 │  │  │  ├─ test_reports_admin_demo.py
@@ -113,8 +152,6 @@ cybershield-ai
 │  │     ├─ video_preprocessing.py
 │  │     └─ __init__.py
 │  └─ web
-│     ├─ AGENTS.md
-│     ├─ CLAUDE.md
 │     ├─ components.json
 │     ├─ Dockerfile
 │     ├─ eslint.config.mjs
@@ -366,12 +403,6 @@ cybershield-ai
 │     │     └─ theme-provider.tsx
 │     ├─ tailwind.config.ts
 │     └─ tsconfig.json
-├─ docs
-│  ├─ API_REFERENCE.md
-│  ├─ DEMO_GUIDE.md
-│  ├─ DEPLOYMENT.md
-│  ├─ MODEL_TRAINING.md
-│  └─ TDD.md
 ├─ infra
 │  ├─ docker-compose.prod.yml
 │  ├─ docker-compose.yml
@@ -391,17 +422,15 @@ cybershield-ai
 │  ├─ 03_video_deepfake_training.ipynb
 │  └─ 04_model_evaluation.ipynb
 ├─ README.md
-├─ tests
-│  ├─ e2e
-│  │  ├─ auth-flow.spec.ts
-│  │  ├─ email-analysis.spec.ts
-│  │  ├─ package.json
-│  │  ├─ playwright.config.ts
-│  │  └─ quiz-flow.spec.ts
-│  └─ integration
-│     └─ full-pipeline.test.py
-├─ test_model.py
-├─ tmp_crash.log
-└─ tmp_test_audio.py
+├─ render.yaml
+└─ tests
+   ├─ e2e
+   │  ├─ auth-flow.spec.ts
+   │  ├─ email-analysis.spec.ts
+   │  ├─ package.json
+   │  ├─ playwright.config.ts
+   │  └─ quiz-flow.spec.ts
+   └─ integration
+      └─ full-pipeline.test.py
 
 ```
