@@ -146,6 +146,7 @@ export default function DecryptedText({
 
   useEffect(() => {
     if (!isAnimating) return;
+    // eslint-disable-next-line prefer-const
     let interval: ReturnType<typeof setInterval>;
     let currentIteration = 0;
 
@@ -171,6 +172,7 @@ export default function DecryptedText({
       }
     };
 
+    // eslint-disable-next-line prefer-const
     interval = setInterval(() => {
       setRevealedIndices((prevRevealed) => {
         if (sequential) {
