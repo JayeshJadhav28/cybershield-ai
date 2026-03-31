@@ -51,6 +51,7 @@ jobs:
           cd apps/api-gateway
           DATABASE_URL=postgresql://test:test@localhost:5432/test \
           JWT_SECRET=test-secret-key-minimum-32-characters \
+          PYTHONPATH=. \
           pytest tests/ -v --tb=short
         env:
           PYTHONDONTWRITEBYTECODE: 1
