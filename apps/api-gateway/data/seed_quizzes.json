@@ -1,0 +1,292 @@
+[
+  {
+    "category": "phishing",
+    "difficulty": 1,
+    "language": "en",
+    "question_text": "You receive an SMS: 'Your SBI account is blocked. Click http://sbi-unblock.xyz to reactivate.' What should you do?",
+    "options": ["Click the link immediately to unblock", "Ignore it — 'sbi-unblock.xyz' is NOT sbi.co.in", "Forward it to friends as warning", "Call the number in the SMS"],
+    "correct_option_index": 1,
+    "explanation": "This is smishing. The domain 'sbi-unblock.xyz' is not the official SBI domain (sbi.co.in). Banks never send blocking messages via SMS with links.",
+    "tags": ["india", "sbi", "sms"]
+  },
+  {
+    "category": "phishing",
+    "difficulty": 1,
+    "language": "en",
+    "question_text": "An email from 'support@amazn-verify.com' asks you to confirm your account. What's the red flag?",
+    "options": ["The word 'support' is suspicious", "The domain 'amazn' is a typo of 'amazon'", "All emails asking to confirm are scams", "The email has a subject line"],
+    "correct_option_index": 1,
+    "explanation": "The domain 'amazn-verify.com' is a typosquat of 'amazon.com'. Always verify sender domains character by character.",
+    "tags": ["phishing", "typosquat"]
+  },
+  {
+    "category": "phishing",
+    "difficulty": 2,
+    "language": "en",
+    "question_text": "You receive an email with a link starting with 'http://' (not 'https://'). Why is this concerning?",
+    "options": ["HTTP is faster than HTTPS", "HTTP means the connection is not encrypted", "HTTP is only for personal websites", "There is no difference"],
+    "correct_option_index": 1,
+    "explanation": "HTTP connections are unencrypted. Legitimate banks and payment sites always use HTTPS. A plain HTTP link to a login page is a strong phishing indicator.",
+    "tags": ["url", "https"]
+  },
+  {
+    "category": "phishing",
+    "difficulty": 2,
+    "language": "en",
+    "question_text": "An email says 'Your account will be suspended in 24 hours unless you verify now.' What technique is this?",
+    "options": ["Legitimate security alert", "Social engineering using urgency and fear", "Standard bank procedure", "Identity verification"],
+    "correct_option_index": 1,
+    "explanation": "Creating artificial urgency is a classic social engineering technique. Scammers pressure victims to act quickly without thinking.",
+    "tags": ["social_engineering", "urgency"]
+  },
+  {
+    "category": "phishing",
+    "difficulty": 2,
+    "language": "en",
+    "question_text": "You receive an email asking you to 'verify your credentials by clicking the link.' What should you do?",
+    "options": ["Click and verify to be safe", "Check if the link URL matches the official website domain", "Reply asking if it's real", "Ignore all emails"],
+    "correct_option_index": 1,
+    "explanation": "Always hover over links to check where they actually go. Legitimate services rarely ask you to verify credentials via email links.",
+    "tags": ["credential", "link"]
+  },
+  {
+    "category": "phishing",
+    "difficulty": 3,
+    "language": "en",
+    "question_text": "A phishing URL is 'https://secure.login.sbi.verify-account.xyz'. Which is the actual domain?",
+    "options": ["sbi", "secure.login.sbi", "verify-account.xyz", "login.sbi.verify-account"],
+    "correct_option_index": 2,
+    "explanation": "The actual domain is 'verify-account.xyz' — everything before it is a subdomain used to deceive. Read domains right-to-left from the TLD.",
+    "tags": ["url", "domain", "advanced"]
+  },
+  {
+    "category": "phishing",
+    "difficulty": 1,
+    "language": "en",
+    "question_text": "Your bank calls and asks for your OTP to 'verify a transaction.' What should you do?",
+    "options": ["Share the OTP since they said they're from the bank", "Refuse — banks NEVER ask for OTP over phone", "Share only the first 3 digits", "Ask them to send an email instead"],
+    "correct_option_index": 1,
+    "explanation": "Banks never call to ask for OTP. OTPs are for transactions YOU initiate. If someone calls asking for OTP, it's always a scam.",
+    "tags": ["otp", "phone", "india"]
+  },
+  {
+    "category": "phishing",
+    "difficulty": 3,
+    "language": "en",
+    "question_text": "You receive an email from your 'IT department' with an attachment named 'salary_revision_2024.exe'. What's wrong?",
+    "options": ["Nothing — salary revision is normal", "The .exe extension means it's an executable program, not a document", "The date 2024 is suspicious", "IT departments don't send emails"],
+    "correct_option_index": 1,
+    "explanation": "A .exe file is an executable program, not a document. Legitimate salary documents would be .pdf or .xlsx. Opening .exe files can install malware.",
+    "tags": ["malware", "attachment"]
+  },
+  {
+    "category": "phishing",
+    "difficulty": 1,
+    "language": "en",
+    "question_text": "What is the safest way to access your bank account online?",
+    "options": ["Click the link in the bank's email", "Search for the bank on Google and click the first result", "Type the bank's official URL directly in your browser", "Use any link that has the bank's name in it"],
+    "correct_option_index": 2,
+    "explanation": "Always type the bank's official URL directly (e.g., sbi.co.in, hdfcbank.com). Never rely on email links or search results, which can be manipulated.",
+    "tags": ["best_practice"]
+  },
+  {
+    "category": "phishing",
+    "difficulty": 2,
+    "language": "en",
+    "question_text": "You get a WhatsApp message offering a 'government subsidy' if you fill a form with your bank details. This is likely:",
+    "options": ["A genuine government scheme", "A phishing scam to steal your bank details", "A new digital initiative", "A harmless survey"],
+    "correct_option_index": 1,
+    "explanation": "Government subsidies are never distributed via WhatsApp forms. This is a common social engineering scam in India targeting financial details.",
+    "tags": ["india", "whatsapp", "govt_scam"]
+  },
+  {
+    "category": "upi_qr",
+    "difficulty": 1,
+    "language": "en",
+    "question_text": "A street vendor shows you a QR code. After scanning, the payee name shows 'Random Person' instead of the shop name. What should you do?",
+    "options": ["Pay anyway since you're at the shop", "Refuse to pay via this QR and ask why the name doesn't match", "Pay a small amount first to test", "Take a photo of the QR and pay later"],
+    "correct_option_index": 1,
+    "explanation": "Mismatched payee names are a major QR code fraud indicator. Scammers paste their own QR codes over legitimate merchant codes.",
+    "tags": ["india", "upi", "qr", "merchant"]
+  },
+  {
+    "category": "upi_qr",
+    "difficulty": 1,
+    "language": "en",
+    "question_text": "Someone sends you a QR code saying 'Scan this to RECEIVE money.' Can you receive money by scanning a QR code?",
+    "options": ["Yes, that's how UPI works", "No — scanning a QR code can only SEND money, never receive it", "Only if the amount is small", "Yes, if you use Google Pay"],
+    "correct_option_index": 1,
+    "explanation": "This is the most common UPI scam. Scanning a QR code or clicking a payment link can only DEBIT money from your account, never credit it.",
+    "tags": ["india", "upi", "common_scam"]
+  },
+  {
+    "category": "upi_qr",
+    "difficulty": 2,
+    "language": "en",
+    "question_text": "You receive a 'collect request' on your UPI app from an unknown person for ₹5,000. What should you do?",
+    "options": ["Accept it — it might be a refund", "Decline it immediately — you didn't initiate any transaction", "Accept and then request the money back", "Ignore it — it will auto-accept"],
+    "correct_option_index": 1,
+    "explanation": "Never accept collect requests from unknown people. This is a common scam where fraudsters send collect requests hoping you'll approve without reading.",
+    "tags": ["india", "upi", "collect_request"]
+  },
+  {
+    "category": "upi_qr",
+    "difficulty": 2,
+    "language": "en",
+    "question_text": "A caller says they sent you extra money by mistake via UPI and asks you to 'return' it. They send a QR code. What's happening?",
+    "options": ["Honest mistake — scan and return the money", "They're tricking you into paying THEM money via the QR code", "You should check your bank balance first", "Ask them to come in person"],
+    "correct_option_index": 1,
+    "explanation": "This is the 'accidental payment' scam. The QR code will DEBIT money from your account. If someone truly sent money by mistake, they can request reversal through their bank.",
+    "tags": ["india", "upi", "reversal_scam"]
+  },
+  {
+    "category": "upi_qr",
+    "difficulty": 1,
+    "language": "en",
+    "question_text": "Before making a UPI payment via QR code, what should you always verify?",
+    "options": ["The QR code image quality", "The payee name and VPA (UPI ID) shown in your payment app", "The colour of the QR code", "Nothing — QR codes are always safe"],
+    "correct_option_index": 1,
+    "explanation": "Always verify the payee name and UPI ID displayed in your payment app before confirming. This is your last line of defense against QR code fraud.",
+    "tags": ["india", "upi", "best_practice"]
+  },
+  {
+    "category": "kyc_otp",
+    "difficulty": 1,
+    "language": "en",
+    "question_text": "A caller says they're from your bank and need your Aadhaar number to 'complete KYC.' What should you do?",
+    "options": ["Share it — KYC requires Aadhaar", "Refuse and visit your bank branch to update KYC in person", "Share only the last 4 digits", "Ask them for their employee ID first"],
+    "correct_option_index": 1,
+    "explanation": "Banks never call to collect Aadhaar or other documents over the phone. KYC updates should always be done at the bank branch or through official online banking portals.",
+    "tags": ["india", "kyc", "aadhaar"]
+  },
+  {
+    "category": "kyc_otp",
+    "difficulty": 1,
+    "language": "en",
+    "question_text": "You receive an OTP you didn't request. Someone then calls asking you to share it 'for security purposes.' This means:",
+    "options": ["Someone is trying to make a transaction from your account", "The bank is verifying your identity", "It's a routine security check", "Your phone has a virus"],
+    "correct_option_index": 0,
+    "explanation": "An unrequested OTP means someone is attempting a transaction using your credentials. NEVER share it. Contact your bank immediately to secure your account.",
+    "tags": ["otp", "fraud"]
+  },
+  {
+    "category": "kyc_otp",
+    "difficulty": 2,
+    "language": "en",
+    "question_text": "A 'bank executive' asks you to install a screen-sharing app like AnyDesk or TeamViewer for 'remote KYC verification.' This is:",
+    "options": ["A new digital banking service", "A scam — screen sharing gives them access to see your OTPs and passwords", "Safe if you don't share passwords", "Required by RBI for digital KYC"],
+    "correct_option_index": 1,
+    "explanation": "Screen-sharing scams are rising in India. Once installed, scammers can see everything on your screen including OTPs, passwords, and bank apps.",
+    "tags": ["india", "screen_share", "anydesk"]
+  },
+  {
+    "category": "kyc_otp",
+    "difficulty": 2,
+    "language": "en",
+    "question_text": "You get a call: 'Your PAN card is linked to suspicious activity. Share your PAN and bank details or face arrest.' What is this?",
+    "options": ["A legitimate police investigation", "A scare tactic used by scammers — police don't call asking for PAN", "You should cooperate to avoid trouble", "A tax department verification"],
+    "correct_option_index": 1,
+    "explanation": "This is a common intimidation scam. Police, tax departments, and banks never threaten arrest over phone to extract personal information. Report to cybercrime.gov.in.",
+    "tags": ["india", "intimidation", "pan"]
+  },
+  {
+    "category": "kyc_otp",
+    "difficulty": 3,
+    "language": "en",
+    "question_text": "What is the correct way to report a cyber fraud in India?",
+    "options": ["Post about it on social media", "Call the National Cyber Crime Helpline 1930 or report at cybercrime.gov.in", "Email the Prime Minister's office", "File an FIR only at the local police station"],
+    "correct_option_index": 1,
+    "explanation": "India has a dedicated National Cyber Crime Reporting Portal (cybercrime.gov.in) and helpline (1930). Report immediately for the best chance of recovering funds.",
+    "tags": ["india", "reporting", "helpline"]
+  },
+  {
+    "category": "deepfake",
+    "difficulty": 1,
+    "language": "en",
+    "question_text": "What is a 'deepfake'?",
+    "options": ["A type of computer virus", "AI-generated fake audio or video that looks/sounds real", "A deep web scam", "A type of encryption"],
+    "correct_option_index": 1,
+    "explanation": "Deepfakes use AI to create realistic fake audio or video of real people. They can be used to impersonate executives, family members, or public figures for fraud.",
+    "tags": ["deepfake", "definition"]
+  },
+  {
+    "category": "deepfake",
+    "difficulty": 2,
+    "language": "en",
+    "question_text": "Your 'CEO' sends you a voice message urgently requesting a fund transfer. The voice sounds exactly like them. What should you do?",
+    "options": ["Transfer immediately — the CEO is waiting", "Call the CEO's known phone number to verify independently", "Reply to the voice message asking for confirmation", "Transfer half the amount as a compromise"],
+    "correct_option_index": 1,
+    "explanation": "AI can clone voices from short samples. Always verify urgent financial requests through a separate, known communication channel. Never act on voice messages alone.",
+    "tags": ["deepfake", "ceo_fraud", "voice"]
+  },
+  {
+    "category": "deepfake",
+    "difficulty": 2,
+    "language": "en",
+    "question_text": "Which of these is a sign that a video call might be a deepfake?",
+    "options": ["The person blinks normally", "The face edges look slightly blurred or the lighting seems inconsistent", "The person is wearing familiar clothes", "The video resolution is high"],
+    "correct_option_index": 1,
+    "explanation": "Deepfake videos often show artifacts around face edges, inconsistent lighting between the face and background, and unnatural lip sync. Look for these subtle clues.",
+    "tags": ["deepfake", "video", "artifacts"]
+  },
+  {
+    "category": "deepfake",
+    "difficulty": 3,
+    "language": "en",
+    "question_text": "A video of a famous Indian CEO promoting a cryptocurrency investment is circulating on social media. How can you verify if it's real?",
+    "options": ["If it looks real, it probably is", "Check the CEO's official social media accounts and the company's official statements", "The number of shares proves it's real", "AI can't make convincing videos yet"],
+    "correct_option_index": 1,
+    "explanation": "Always verify viral videos through official channels. The BSE chief's deepfake video circulated on social media promoting fake investments. Official accounts and websites are your verification source.",
+    "tags": ["deepfake", "india", "crypto_scam"]
+  },
+  {
+    "category": "deepfake",
+    "difficulty": 1,
+    "language": "en",
+    "question_text": "A family member video-calls you asking for emergency money. The call quality is poor and their face looks slightly off. What should you do?",
+    "options": ["Send money immediately — they need help", "Hang up and call them back on their known phone number", "Ask them to prove their identity via the same call", "Send half the amount"],
+    "correct_option_index": 1,
+    "explanation": "Always verify emergency requests independently. Hang up and call the person directly on their known number. Deepfakes can impersonate family members convincingly.",
+    "tags": ["deepfake", "family_scam"]
+  },
+  {
+    "category": "general",
+    "difficulty": 1,
+    "language": "en",
+    "question_text": "What is 'two-factor authentication' (2FA)?",
+    "options": ["Using two different passwords", "Requiring two forms of verification (password + OTP/biometric)", "Having two bank accounts", "Logging in twice"],
+    "correct_option_index": 1,
+    "explanation": "2FA adds a second layer of security beyond just a password. Even if your password is compromised, the attacker still needs your phone/biometric to access your account.",
+    "tags": ["security", "2fa"]
+  },
+  {
+    "category": "general",
+    "difficulty": 1,
+    "language": "en",
+    "question_text": "Which password is the strongest?",
+    "options": ["password123", "MyDogRex", "Tr@in$t@tion_2024!", "12345678"],
+    "correct_option_index": 2,
+    "explanation": "Strong passwords are long, use a mix of uppercase, lowercase, numbers, and special characters. 'Tr@in$t@tion_2024!' is the strongest option here.",
+    "tags": ["security", "password"]
+  },
+  {
+    "category": "general",
+    "difficulty": 2,
+    "language": "en",
+    "question_text": "You find a USB drive in your office parking lot. What should you do?",
+    "options": ["Plug it into your computer to find the owner", "Hand it to your IT security team without plugging it in", "Keep it — finders keepers", "Plug it in on a public computer"],
+    "correct_option_index": 1,
+    "explanation": "Dropped USB drives are a common social engineering attack vector. They may contain malware that installs automatically when plugged in. Always hand unknown devices to IT security.",
+    "tags": ["physical_security", "usb"]
+  },
+  {
+    "category": "general",
+    "difficulty": 2,
+    "language": "en",
+    "question_text": "What should you do if you suspect your bank account has been compromised?",
+    "options": ["Wait and see if money is actually stolen", "Immediately contact your bank, change passwords, and report to cybercrime.gov.in / call 1930", "Post about it on social media", "Delete your banking app"],
+    "correct_option_index": 1,
+    "explanation": "Time is critical in cyber fraud. Contact your bank immediately to freeze the account, change all passwords, and file a report at cybercrime.gov.in or call 1930.",
+    "tags": ["india", "incident_response"]
+  }
+]

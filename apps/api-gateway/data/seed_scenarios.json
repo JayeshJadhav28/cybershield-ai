@@ -1,0 +1,115 @@
+[
+  {
+    "title": "The Fake KYC Call",
+    "description": "A caller claims to be from your bank and says your KYC is expiring. Navigate this scenario to learn the right responses.",
+    "category": "kyc_otp",
+    "scenario_type": "chat",
+    "estimated_time_minutes": 5,
+    "language": "en",
+    "steps": [
+      {
+        "type": "message",
+        "role": "caller",
+        "message": "Hello, this is Rajesh from SBI customer care. We've noticed your KYC documents have expired. Your account will be frozen in 24 hours if not updated."
+      },
+      {
+        "type": "choice",
+        "prompt": "What do you do?",
+        "options": [
+          "Ask them to send you an OTP to verify your identity",
+          "Tell them you'll visit the branch directly to update KYC",
+          "Share your Aadhaar number and PAN to update KYC quickly",
+          "Hang up and call the official SBI helpline to verify"
+        ],
+        "correct_index": 3,
+        "feedback": {
+          "0": "❌ Never ask for or share OTPs over phone calls. Banks send OTPs only for transactions you initiate.",
+          "1": "⚠️ Visiting the branch is safe, but the best immediate action is to verify the call through official channels first.",
+          "2": "❌ Never share personal documents over phone. This is exactly what scammers want.",
+          "3": "✅ Correct! Always hang up and call the bank's official helpline number to verify any such claims."
+        }
+      },
+      {
+        "type": "message",
+        "role": "narrator",
+        "message": "The caller becomes insistent: 'Sir, this is very urgent. If you don't update now, your account will be permanently blocked and you may face legal action.'"
+      },
+      {
+        "type": "choice",
+        "prompt": "How do you respond?",
+        "options": [
+          "Get scared and agree to share your details",
+          "Tell them you'll report this call to the cyber crime helpline 1930",
+          "Ask for their employee ID to verify later",
+          "Hang up immediately"
+        ],
+        "correct_index": 3,
+        "feedback": {
+          "0": "❌ Don't let fear tactics pressure you. Banks never threaten legal action over KYC on phone calls.",
+          "1": "⚠️ Good awareness, but the safest action is to simply hang up. Don't engage further with potential scammers.",
+          "2": "⚠️ Scammers will give fake employee IDs. Don't waste time verifying — just hang up.",
+          "3": "✅ Correct! When a call feels suspicious, the safest action is to hang up immediately. Then call your bank directly."
+        }
+      },
+      {
+        "type": "message",
+        "role": "narrator",
+        "message": "🛡️ Great job! Remember:\n• Banks never call to collect personal information\n• Never share OTP, Aadhaar, PAN, or passwords over phone\n• If suspicious, hang up and call the official bank helpline\n• Report fraud attempts at cybercrime.gov.in or call 1930"
+      }
+    ]
+  },
+  {
+    "title": "Phishing Email at Work",
+    "description": "You receive an email at your office asking you to reset your corporate credentials. Can you spot the red flags?",
+    "category": "phishing",
+    "scenario_type": "email",
+    "estimated_time_minutes": 4,
+    "language": "en",
+    "steps": [
+      {
+        "type": "message",
+        "role": "email",
+        "message": "From: it-support@company-helpdesk.xyz\nSubject: URGENT: Password Reset Required\n\nDear Employee,\n\nOur security team has detected unauthorized access to your corporate email. You must reset your password immediately using the link below:\n\nhttps://corporate-login-secure.xyz/reset\n\nFailure to reset within 4 hours will result in your account being locked.\n\nIT Security Team"
+      },
+      {
+        "type": "choice",
+        "prompt": "What do you notice about this email?",
+        "options": [
+          "It seems legitimate — IT departments send these emails",
+          "The sender domain 'company-helpdesk.xyz' doesn't match our company domain",
+          "The urgency is concerning but probably real",
+          "The link looks normal"
+        ],
+        "correct_index": 1,
+        "feedback": {
+          "0": "❌ While IT departments do send security emails, you should always verify the sender domain first.",
+          "1": "✅ Correct! The sender domain 'company-helpdesk.xyz' is not your company's real domain. This is a key phishing indicator.",
+          "2": "❌ Artificial urgency ('4 hours') is a classic phishing technique designed to make you act without thinking.",
+          "3": "❌ The link goes to 'corporate-login-secure.xyz' — not your company's real website. Never click such links."
+        }
+      },
+      {
+        "type": "choice",
+        "prompt": "What should you do with this email?",
+        "options": [
+          "Click the link but don't enter your password",
+          "Forward it to your actual IT department and mark it as phishing",
+          "Reply to the sender asking if it's real",
+          "Delete it and forget about it"
+        ],
+        "correct_index": 1,
+        "feedback": {
+          "0": "❌ Even clicking phishing links can be dangerous — some install malware just by visiting the page.",
+          "1": "✅ Correct! Forward suspicious emails to your IT security team. They can investigate and warn others.",
+          "2": "❌ Never reply to phishing emails. The sender is a scammer and replying confirms your email is active.",
+          "3": "⚠️ Deleting protects you, but forwarding to IT helps protect your entire organization."
+        }
+      },
+      {
+        "type": "message",
+        "role": "narrator",
+        "message": "🛡️ Key takeaways:\n• Always check the sender's email domain carefully\n• Look for urgency tactics and threats\n• Never click links in suspicious emails\n• Forward phishing emails to your IT security team\n• When in doubt, contact IT through a known channel (not by replying to the email)"
+      }
+    ]
+  }
+]
