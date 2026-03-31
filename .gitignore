@@ -34,21 +34,6 @@ out/
 /uploads/
 /tmp/
 
-# models & data (CRITICAL)
-models/
-data/
-*.pt
-*.pkl
-*.h5
-*.onnx
-
-# ===== ML Models (large binary files) =====
-models/*.h5
-models/*.pt
-models/*.pkl
-models/*.joblib
-models/*.bin
-!models/README.md
 
 # ── IDE ──
 .vscode/
@@ -89,5 +74,3 @@ crash.log
 tmp_*.py
 tmp_*.log
 
-# Ignore local config file
-apps/api-gateway/config.py
