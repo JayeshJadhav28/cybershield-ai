@@ -19,7 +19,6 @@ passlib[bcrypt]==1.7.4
 aiosmtplib==5.1.0
 dnspython==2.8.0
 email-validator==2.3.0
-bcrypt-4.2.1
 
 # ── ML: Core ──
 scikit-learn==1.6.0
