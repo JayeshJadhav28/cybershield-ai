@@ -1,0 +1,317 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ================================================================
+   CyberShield AI — Design System Tokens
+   ================================================================ */
+
+@layer base {
+  :root {
+    /* ── shadcn/ui base (light — rarely used, app is dark-first) ── */
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 187 86% 43%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 187 86% 43%;
+    --radius: 0.5rem;
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 187 86% 43%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 187 86% 43%;
+  }
+
+  .dark {
+    /* ── CyberShield Dark Theme (Primary) ── */
+    --background: 240 20% 4%;          /* #0a0a0f */
+    --foreground: 240 5% 90%;          /* #e4e4e7 */
+    --card: 240 15% 7%;               /* #111118 */
+    --card-foreground: 240 5% 90%;
+    --popover: 240 15% 7%;
+    --popover-foreground: 240 5% 90%;
+    --primary: 187 86% 43%;           /* #06b6d4 cyan */
+    --primary-foreground: 240 20% 4%;
+    --secondary: 240 12% 10%;         /* #1a1a24 */
+    --secondary-foreground: 240 5% 90%;
+    --muted: 240 12% 10%;
+    --muted-foreground: 240 5% 46%;   /* #71717a */
+    --accent: 240 12% 14%;
+    --accent-foreground: 240 5% 90%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 12% 18%;            /* #2a2a3a */
+    --input: 240 12% 18%;
+    --ring: 187 86% 43%;
+
+    /* Sidebar (dark) */
+    --sidebar-background: 240 15% 5.5%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 187 86% 43%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 12% 12%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 12% 16%;
+    --sidebar-ring: 187 86% 43%;
+  }
+
+  /* ── CyberShield Semantic CSS Variables ── */
+  :root {
+    --cs-bg-primary: #0a0a0f;
+    --cs-bg-secondary: #111118;
+    --cs-bg-tertiary: #1a1a24;
+    --cs-border: #2a2a3a;
+    --cs-text-primary: #e4e4e7;
+    --cs-text-secondary: #a1a1aa;
+    --cs-text-muted: #71717a;
+    --cs-accent-cyan: #06b6d4;
+    --cs-accent-blue: #3b82f6;
+    --cs-accent-purple: #8b5cf6;
+    --cs-safe: #22c55e;
+    --cs-safe-bg: rgba(34, 197, 94, 0.08);
+    --cs-suspicious: #f59e0b;
+    --cs-suspicious-bg: rgba(245, 158, 11, 0.08);
+    --cs-dangerous: #ef4444;
+    --cs-dangerous-bg: rgba(239, 68, 68, 0.08);
+    --cs-glow-cyan: 0 0 20px rgba(6, 182, 212, 0.125);
+    --cs-glow-red: 0 0 20px rgba(239, 68, 68, 0.125);
+    --cs-duration-fast: 150ms;
+    --cs-duration-normal: 300ms;
+    --cs-duration-slow: 500ms;
+  }
+}
+
+/* ── Dashboard wave animation ────────────────────────────── */
+@keyframes wave {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(20deg);
+  }
+  75% {
+    transform: rotate(-15deg);
+  }
+}
+
+/* ================================================================
+   Base Styles
+   ================================================================ */
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Custom scrollbar for dark theme */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+  }
+
+  /* Custom scrollbar for prompt textarea */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #3f3f46;
+    border-radius: 3px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #52525b;
+  }
+}
+
+/* ================================================================
+   Component Utilities
+   ================================================================ */
+
+@layer utilities {
+  /* Scan-line overlay for cyber console aesthetic */
+  .scan-line-overlay {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scan-line-overlay::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(6, 182, 212, 0.02) 2px,
+      rgba(6, 182, 212, 0.02) 4px
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Gradient text */
+  .text-gradient-cyan {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-cs-cyan to-cs-blue;
+  }
+
+  .text-gradient-brand {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-cs-cyan via-cs-blue to-cs-purple;
+  }
+
+  /* Glow borders */
+  .border-glow-cyan {
+    box-shadow: inset 0 0 0 1px rgba(6, 182, 212, 0.2),
+      0 0 15px rgba(6, 182, 212, 0.08);
+  }
+
+  .border-glow-safe {
+    box-shadow: inset 0 0 0 1px rgba(34, 197, 94, 0.3),
+      0 0 15px rgba(34, 197, 94, 0.1);
+  }
+
+  .border-glow-suspicious {
+    box-shadow: inset 0 0 0 1px rgba(245, 158, 11, 0.3),
+      0 0 15px rgba(245, 158, 11, 0.1);
+  }
+
+  .border-glow-dangerous {
+    box-shadow: inset 0 0 0 1px rgba(239, 68, 68, 0.3),
+      0 0 15px rgba(239, 68, 68, 0.1);
+  }
+
+  /* Grid background pattern */
+  .bg-grid {
+    background-image: linear-gradient(
+        rgba(6, 182, 212, 0.03) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        rgba(6, 182, 212, 0.03) 1px,
+        transparent 1px
+      );
+    background-size: 40px 40px;
+  }
+
+  /* Dot background pattern */
+  .bg-dots {
+    background-image: radial-gradient(
+      rgba(6, 182, 212, 0.08) 1px,
+      transparent 1px
+    );
+    background-size: 24px 24px;
+  }
+
+  /* Animated gradient border */
+  .animated-border {
+    position: relative;
+    background: hsl(var(--card));
+    border-radius: var(--radius);
+  }
+
+  .animated-border::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: calc(var(--radius) + 1px);
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      rgba(6, 182, 212, 0.4),
+      rgba(59, 130, 246, 0.2),
+      rgba(139, 92, 246, 0.4)
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* No-scrollbar utility */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* ================================================================
+   Glitch Text Effect
+   ================================================================ */
+
+@layer components {
+  .glitch-text {
+    position: relative;
+    display: inline-block;
+  }
+
+  .glitch-text::before,
+  .glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .glitch-text::before {
+    animation: glitch 3s infinite;
+    clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+    color: #06b6d4;
+    opacity: 0.8;
+  }
+
+  .glitch-text::after {
+    animation: glitch 3s infinite reverse;
+    clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+    color: #8b5cf6;
+    opacity: 0.8;
+  }
+}
