@@ -1,0 +1,82 @@
+version: "3.9"
+
+services:
+  # ─── PostgreSQL Database ───
+  db:
+    image: postgres:15-alpine
+    container_name: cybershield-db
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: cybershield
+      POSTGRES_PASSWORD: cybershield_pass
+      POSTGRES_DB: cybershield_db
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cybershield -d cybershield_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # ─── FastAPI Backend ───
+  api:
+    build:
+      context: ./apps/api-gateway
+      dockerfile: Dockerfile
+    container_name: cybershield-api
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://cybershield:cybershield_pass@db:5432/cybershield_db
+      JWT_SECRET: docker-dev-secret-change-in-production-abcdef123456789
+      CORS_ORIGINS: '["http://localhost:3000"]'
+      MODEL_DIR: /app/models
+      UPLOAD_DIR: /tmp/uploads
+    volumes:
+      - ./apps/api-gateway:/app
+      - ./models:/app/models
+      - uploads:/tmp/uploads
+    depends_on:
+      db:
+        condition: service_healthy
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+
+  # ─── Next.js Frontend ───
+  web:
+    build:
+      context: ./apps/web
+      dockerfile: Dockerfile
+    container_name: cybershield-web
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8000/api/v1
+    volumes:
+      - ./apps/web/src:/app/src
+      - ./apps/web/public:/app/public
+    depends_on:
+      - api
+    command: npm run dev
+
+  # ─── Nginx Reverse Proxy (production) ───
+  nginx:
+    image: nginx:alpine
+    container_name: cybershield-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./infra/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - web
+      - api
+    profiles:
+      - production
+
+volumes:
+  pgdata:
+  uploads:

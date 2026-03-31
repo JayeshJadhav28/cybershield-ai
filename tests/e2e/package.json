@@ -1,0 +1,12 @@
+{
+  "name": "cybershield-e2e",
+  "private": true,
+  "devDependencies": {
+    "@playwright/test": "^1.48.0"
+  },
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "report": "playwright show-report"
+  }
+}

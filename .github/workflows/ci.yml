@@ -1,0 +1,72 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint-frontend:
+    name: Lint Frontend
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: apps/web/package-lock.json
+      - run: cd apps/web && npm ci
+      - run: cd apps/web && npm run lint
+
+  test-backend:
+    name: Test Backend
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:15-alpine
+        env:
+          POSTGRES_USER: test
+          POSTGRES_PASSWORD: test
+          POSTGRES_DB: test
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: apps/api-gateway/requirements.txt
+      - run: |
+          cd apps/api-gateway
+          pip install -r requirements.txt
+          pip install pytest pytest-asyncio httpx
+      - run: |
+          cd apps/api-gateway
+          DATABASE_URL=postgresql://test:test@localhost:5432/test \
+          JWT_SECRET=test-secret-key-minimum-32-characters \
+          pytest tests/ -v --tb=short
+        env:
+          PYTHONDONTWRITEBYTECODE: 1
+
+  build-check:
+    name: Build Check
+    needs: [lint-frontend, test-backend]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: apps/web/package-lock.json
+      - run: cd apps/web && npm ci
+      - run: cd apps/web && npm run build
+        env:
+          NEXT_PUBLIC_API_URL: http://localhost:8000/api/v1
