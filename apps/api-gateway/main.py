@@ -81,7 +81,7 @@ def create_application() -> FastAPI:
     # 2. Trusted Host
     app.add_middleware(
         TrustedHostMiddleware,
-        allowed_hosts=["*"] if settings.DEBUG else ["localhost", "*.cybershield.ai", "testserver"]
+        allowed_hosts=["*"] if settings.DEBUG else ["localhost", "*.cybershield.ai", "testserver", "cybershield-api-t6z7.onrender.com"]
     )
 
     # 3. CORS  (outermost — added last so it wraps everything and always runs first)
