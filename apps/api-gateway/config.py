@@ -12,14 +12,13 @@ from pydantic import field_validator
 
 
 def _resolve_model_dir() -> str:
-    """Resolve the models/ directory relative to project root."""
-    # apps/api-gateway/config.py -> project root is ../../
+    """Resolve the models/ directory relative to this file (apps/api-gateway/)."""
     this_file = Path(__file__).resolve()
-    project_root = this_file.parent.parent.parent
-    candidate = project_root / "models"
+    # config.py is at apps/api-gateway/config.py
+    # models/   is at apps/api-gateway/models/
+    candidate = this_file.parent / "models"
     if candidate.is_dir():
         return str(candidate)
-    # Docker / fallback
     return os.getenv("MODEL_DIR", "./models")
 
 
