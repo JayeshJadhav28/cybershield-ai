@@ -8,6 +8,7 @@
 [![License](https://img.shields.io/badge/License-Apache_2.0-00d4ff.svg?style=for-the-badge)](LICENSE)
 [![Version](https://img.shields.io/badge/Version-1.0.0-00ff88.svg?style=for-the-badge)]()
 [![Build](https://img.shields.io/badge/Build-Passing-00d4ff.svg?style=for-the-badge)]()
+[![ROTAREX](https://img.shields.io/badge/🏆_ROTAREX_2026-2nd_Prize-gold?style=for-the-badge)]()
  
 [![Python](https://img.shields.io/badge/Python-3.10+-00d4ff.svg?style=flat-square&logo=python&logoColor=white)](https://python.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-00d4ff.svg?style=flat-square&logo=typescript&logoColor=white)](https://typescriptlang.org)
@@ -44,6 +45,7 @@
 root@cybershield:~$ cat --sections
 ```
 
+- [🏆 Recognition](#-recognition)
 - [⚡ Overview](#-overview)
 - [🎯 Key Capabilities](#-key-capabilities)
 - [🏗️ System Architecture](#️-system-architecture)
@@ -59,6 +61,29 @@ root@cybershield:~$ cat --sections
 - [⚠️ Disclaimer](#️-disclaimer)
 - [📜 License](#-license)
 - [👨‍💻 Developer](#-developer)
+
+
+
+---
+ 
+## 🏆 Recognition
+ 
+ 
+```
+╔══════════════════════════════════════════════════════════════════════════════════╗
+║                                                                                  ║
+║   🥈  2nd PRIZE  —  ROTAREX 2026                                                ║
+║   State Level Project Exhibition & Competition                                   ║
+║                                                                                  ║
+║   Organised by  : Yashoda Technical Campus, Satara                               ║
+║   Co-organised  : Rotary Club of Satara & Rotary Club Charitable Trust           ║
+║   Date          : 3rd April 2026                                                 ║
+║   Theme         : Cybercrime Detection & Digital Forensics                       ║                                          ║
+║                                                                                  ║
+╚══════════════════════════════════════════════════════════════════════════════════╝
+```
+ 
+</div>
 
 ---
 
